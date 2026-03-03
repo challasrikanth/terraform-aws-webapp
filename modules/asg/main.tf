@@ -1,5 +1,5 @@
 resource "aws_launch_template" "lt" {
-  name = "ha-webapp-template"
+  name = "webapp-template"
 
   image_id      = var.ami
   instance_type = var.instance_type

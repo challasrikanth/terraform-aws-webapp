@@ -16,7 +16,7 @@ resource "aws_lb_target_group" "tg" {
 
 
 resource "aws_lb_listener" "listener" {
-  load_balancer_arn = aws_lb.alb.arn
+  load_balancer_arn = aws_alb.alb.arn
   port              = 80
   protocol          = "HTTP"
 

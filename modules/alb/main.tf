@@ -32,6 +32,7 @@ resource "aws_lb_listener" "listener" {
 resource "aws_security_group" "alb_sg" {
   name = "webapp-alb-sg"
   description = "allow http from the internet"
+  vpc_id      = var.vpc_id   # <-- REQUIRED
 
   ingress {
     from_port   = 80
@@ -47,3 +48,5 @@ resource "aws_security_group" "alb_sg" {
     cidr_blocks = ["0.0.0.0/0"]  # Allow all outbound traffic
   }
 }
+
+

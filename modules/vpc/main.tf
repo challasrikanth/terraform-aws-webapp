@@ -23,7 +23,7 @@ resource "aws_subnet" "public" {
     tags = merge(
         
         local.common_tags,
-        # roboshop-dev-public-us-east-1a
+        # webapp-dev-public-us-east-1a
         {
             Name = "${var.project}-${var.environment}-public-${local.az_names[count.index]}"
         },
@@ -40,9 +40,9 @@ resource "aws_subnet" "private" {
     tags = merge(
         
         local.common_tags,
-        # roboshop-dev-public-us-east-1a
+        # webapp-dev-public-us-east-1a
         {
-            Name = "${var.project}-${var.environment}-public-${local.az_names[count.index]}"
+            Name = "${var.project}-${var.environment}-private-${local.az_names[count.index]}"
         },
         var.private_subnet_tags
     )
@@ -53,7 +53,7 @@ resource "aws_route_table" "public" {
 
     tags = merge(
         local.common_tags,
-        # roboshop-dev-public
+        # webapp-dev-public
         {
             Name = "${var.project}-${var.environment}-public"
         },
@@ -98,9 +98,9 @@ resource "aws_route_table" "private" {
 
     tags = merge(
         local.common_tags,
-        # roboshop-dev-public
+        # weabapp-dev-public
         {
-            Name = "${var.project}-${var.environment}-public"
+            Name = "${var.project}-${var.environment}-private"
         },
         var.private_route_table_tags
   )

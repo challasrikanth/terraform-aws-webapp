@@ -1,4 +1,4 @@
-resource "aws_alb" "main" {
+resource "aws_alb" "alb" {
   name= "ha-webapp-alb"
   load_balancer_type = "application"
   subnets = var.public_subnets

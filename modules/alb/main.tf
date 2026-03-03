@@ -5,7 +5,7 @@ resource "aws_alb" "main" {
 
 }
 
-resource "aws.aws_lb_target_group" "tg" {
+resource "aws_lb_target_group" "tg" {
   name     = "ha-webapp-tg"
   port     = 80
   protocol = "HTTP"

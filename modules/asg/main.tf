@@ -1,5 +1,5 @@
 resource "aws_launch_template" "lt" {
-  name = "webapp-template"
+  name = "ha-webapp-template"
 
   image_id      = var.ami
   instance_type = var.instance_type
@@ -10,16 +10,16 @@ yum update -y
 yum install -y httpd
 systemctl start httpd
 systemctl enable httpd
-echo "<h1>Welcome to Highly Available Web Application</h1>" > /var/www/html/index.html
+echo "<h2>Highly Available WebApp - ASG EC2</h2>" > /var/www/html/index.html
 EOF
 )
 }
 
 resource "aws_autoscaling_group" "asg" {
-  vpc_zone_identifier = var.subnet_ids
   desired_capacity    = 2
   max_size            = 4
   min_size            = 2
+  vpc_zone_identifier = var.private_subnets
 
   launch_template {
     id      = aws_launch_template.lt.id
@@ -28,3 +28,7 @@ resource "aws_autoscaling_group" "asg" {
 
   target_group_arns = [var.target_group_arn]
 }
+
+
+
+

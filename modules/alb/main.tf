@@ -33,7 +33,6 @@ resource "aws_security_group" "alb_sg" {
   name = "webapp-alb-sg"
   description = "allow http from the internet"
 
-
   ingress  {
     from_port = 80
     to_port = 80
@@ -44,7 +43,8 @@ resource "aws_security_group" "alb_sg" {
   from_port = 0
   to_port = 0
   protocol = "-1"
-  cidr_blocks = var.alb_cidr
+  cidr_blocks = ["0.0.0.0/0"]
+
 }
 
 }

@@ -14,7 +14,7 @@ systemctl enable httpd
 
 # Fetch EC2 metadata
 HOSTNAME=$(curl -s http://169.254.169.254/latest/meta-data/local-hostname)
-
+INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 
 echo "<h2>Welcome to WebApp</h2>" > /var/www/html/index.html
 echo "<p>Hostname: $HOSTNAME</p>" >> /var/www/html/index.html

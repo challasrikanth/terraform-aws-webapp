@@ -7,6 +7,6 @@ variable "vpc_id" {
 
 
 variable "alb_cidr" {
-  type        = list
-  default     = ["0.0.0.0/0"]
+  type    = list(string)
+  default = ["0.0.0.0/0"]
 }

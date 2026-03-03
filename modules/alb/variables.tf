@@ -1,7 +1,6 @@
 variable "public_subnets" {
-    type = list
-    
-  
+    type = list 
 }
-
-variable "vpc_id" {}
+variable "vpc_id" {
+    
+}
